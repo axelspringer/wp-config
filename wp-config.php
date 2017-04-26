@@ -8,7 +8,7 @@ define('DATA_DIR_NAME', 'data');
 define('UPLOADS_DIR_NAME', 'uploads');
 
 define('APP_DIR', realpath(__DIR__ . '/../../' . APP_DIR_NAME));
-define('DATA_DIR', realpath(__DIR__ . '../' . DATA_DIR_NAME));
+define('DATA_DIR', realpath(__DIR__ . '/../' . DATA_DIR_NAME));
 
 // load config that depends on the container environment
 $environment = getenv('ENVIRONMENT');
