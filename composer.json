@@ -1,12 +1,16 @@
 {
     "name": "wppl/wp-config",
-    "type": "wordpress-plugin",
+    "type": "wordpress-dropin",
     "description": "Adding standard config with object cache",
     "keywords": [
         "wordpress",
         "plugin",
         "page"
     ],
+    "require": {
+        "composer/installers": "~1.0",
+        "koodimonni/composer-dropin-installer": ">=1.0.1"
+    },
     "homepage": "https://as-stash.axelspringer.de/projects/WPPL/repos/wp-config",
     "license": "proprietary",
     "extra": {
