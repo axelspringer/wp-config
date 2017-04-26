@@ -78,6 +78,3 @@ function initCache() {
 initCache();
 
 $table_prefix = 'wp_';
-
-// Load WordPress settings
-require_once ABSPATH . 'wp-settings.php';
