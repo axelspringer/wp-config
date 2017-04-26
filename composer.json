@@ -7,6 +7,9 @@
         "plugin",
         "page"
     ],
+    "require": {
+        "koodimonni/composer-dropin-installer": ">=1.0.1"
+    },
     "homepage": "https://as-stash.axelspringer.de/projects/WPPL/repos/wp-config",
     "license": "proprietary",
     "extra": {
