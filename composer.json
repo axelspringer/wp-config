@@ -10,6 +10,9 @@
     "homepage": "https://as-stash.axelspringer.de/projects/WPPL/repos/wp-config",
     "license": "proprietary",
     "extra": {
-        "installer-name": "wp-config"
+        "installer-name": "wp-config",
+        "branch-alias": {
+            "dev-master": "*"
+        }
     }
 }
