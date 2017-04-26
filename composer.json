@@ -1,0 +1,15 @@
+{
+    "name": "wppl/wp-config",
+    "type": "wordpress-plugin",
+    "description": "Adding standard config with object cache",
+    "keywords": [
+        "wordpress",
+        "plugin",
+        "page"
+    ],
+    "homepage": "https://as-stash.axelspringer.de/projects/WPPL/repos/wp-config",
+    "license": "proprietary",
+    "extra": {
+        "installer-name": "wp-config"
+    }
+}
