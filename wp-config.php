@@ -135,6 +135,3 @@ $table_prefix = 'wp_';
 if (file_exists(APP_DIR . '/config/adtags.php')) {
   define('ASSE_ADTAGS', require_once APP_DIR . '/config/adtags.php');
 }
-
-// Load WordPress settings
-require_once ABSPATH . 'wp-settings.php';
