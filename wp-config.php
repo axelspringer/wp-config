@@ -41,8 +41,10 @@ if (false === file_exists($configPath)) {
     }
 }
 
-//load adtags config
-define('ASSE_ADTAGS', require_once APP_DIR . '/config/adtags.php');
+// load adtags config
+if (file_exists(APP_DIR . '/config/adtags.php')) {
+  define('ASSE_ADTAGS', require_once APP_DIR . '/config/adtags.php');
+}
 
 /**
  * Set up cache
