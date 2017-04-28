@@ -10,6 +10,13 @@ define('UPLOADS_DIR_NAME', 'uploads');
 define('APP_DIR', realpath(__DIR__ . '/../../' . APP_DIR_NAME));
 define('DATA_DIR', realpath(__DIR__ . '/../' . DATA_DIR_NAME));
 
+//Books Links
+define('ASSE_ADMIN_LINKS', [
+  'Stylebook'     => $originHost . '/wp/wp-admin/',
+  'Techbook'      => $originHost . '/wp/wp-admin/',
+  'Travelbook'    => $originHost . '/wp/wp-admin/'
+]);
+
 /**
  * Set Origin
  *
