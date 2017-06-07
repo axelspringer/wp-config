@@ -7,15 +7,94 @@
         "plugin",
         "page"
     ],
-    "require": {
-        "koodimonni/composer-dropin-installer": ">=1.0.1"
-    },
     "homepage": "https://as-stash.axelspringer.de/projects/WPPL/repos/wp-config",
     "license": "proprietary",
     "extra": {
-        "installer-name": "wp-config",
-        "branch-alias": {
-            "dev-master": "*"
+      "installer-name": "wp-config",
+      "installer-paths": {
+        "web/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+        "web/wp-content/themes/{$name}/": ["type:wordpress-theme"],
+        "web/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"]
+      },
+      "dropin-paths": {
+        "web/wp-content/languages/": ["vendor:koodimonni-language"],
+        "web/wp-content/languages/plugins/": ["vendor:koodimonni-plugin-language"],
+        "web/wp-content/languages/themes/": ["vendor:koodimonni-theme-language"],
+        "web/wp-content/mu-plugins/": ["type:wordpress-muplugin"],
+        "web/wp-content/": ["type:wordpress-dropin"]
+      },
+      "wordpress-install-dir": "web/wp"
+    },
+    "require": {
+      "koodimonni/composer-dropin-installer": ">=1.0.1",
+
+      "wppl/asse-exporter": "1.0.3",
+      "wppl/asse-feed": "1.0.1",
+      "wppl/asse-helpers": "1.0.0",
+      "wppl/asse-importer": "1.0.3",
+      "wppl/asse-pagemanager": "2.2.15",
+
+      "wpackagist-plugin/amazon-s3-and-cloudfront": "1.1.5",
+      "wpackagist-plugin/amazon-web-services": "1.0.2",
+      "wpackagist-plugin/amp": "0.3.3",
+      "wpackagist-plugin/co-authors-plus": "3.2.1",
+      "wpackagist-plugin/duplicate-post": "2.6",
+      "wpackagist-plugin/json-api": "1.1.3",
+      "wpackagist-plugin/jw-player": "1.6.0",
+      "wpackagist-plugin/no-category-base-wpml": "1.3",
+      "wpackagist-plugin/pods": "2.6.8",
+      "wpackagist-plugin/wp-category-permalink": "3.0.4",
+      "wpackagist-plugin/wp-meta-tags": "2.0.0",
+      "wpackagist-plugin/disable-wordpress-updates": "^1.6",
+
+      "muplugin/asse-action-onlyadmin": "1.0.2",
+      "muplugin/asse-action-post": "1.0.1",
+      "muplugin/asse-action-reveal-post-id": "1.0.0",
+      "muplugin/asse-action-upload": "1.0.3",
+      "muplugin/asse-action-wpservices": "1.0.0",
+      "muplugin/asse-add-headers": "1.0.4",
+      "muplugin/asse-filter-attachment-url": "1.0.0",
+      "muplugin/asse-filter-cache-headers": "1.0.4",
+      "muplugin/asse-filter-dashboard": "1.0.0",
+      "muplugin/asse-filter-image": "1.0.0",
+      "muplugin/asse-filter-override-l10n": "1.0.0",
+      "muplugin/asse-filter-post": "1.0.0",
+      "muplugin/asse-filter-upload": "1.0.3",
+      "muplugin/asse-imagesizes": "1.0.0",
+      "muplugin/aws-integrations": "1.0.3",
+      "muplugin/book-enable-plugins": "1.0.0",
+      "muplugin/book-filter-allfacebook-instant-articles": "1.0.0",
+      "muplugin/book-filter-amp": "1.0.0",
+      "muplugin/s3-postmeta-patch": "1.0.3",
+      "muplugin/s3-sitemap-url": "1.0.1",
+      "muplugin/wp-disable-emojis": "1.0.0",
+      "wpt/asse-xbooks-theme": "1.0.8",
+      "muplugin/asse-action-url": "1.0.8",
+      "muplugin/asse-patches": "1.0.1"
+    },
+    "repositories": [
+    {
+      "type": "composer",
+      "url": "https://toran-proxy.asit.services/repo/private/",
+      "options": {
+        "ssl": {
+          "verify_peer": false,
+          "verify_peer_name": false,
+          "allow_self_signed": true
         }
-    }
+      }
+    },
+    {
+      "type": "composer",
+      "url": "https://toran-proxy.asit.services/repo/packagist/",
+      "options": {
+        "ssl": {
+          "verify_peer": false,
+          "verify_peer_name": false,
+          "allow_self_signed": true
+        }
+      }
+    },
+    {"packagist": false}
+  ]
 }
