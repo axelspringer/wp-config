@@ -1,103 +1,113 @@
 <?php
-// @codingStandardsIgnoreFile
+getenv('WP_ORIGIN') || exit;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-define('APP_DIR_NAME', 'app');
-define('DATA_DIR_NAME', 'data');
-define('UPLOADS_DIR_NAME', 'uploads');
+if ( ! defined( 'ASSE_XBOOKS_CONFIG' ) ) {
+  define( 'ASSE_XBOOKS_CONFIG', '1.0.12' );
+}
 
-define('APP_DIR', realpath(__DIR__ . '/../../' . APP_DIR_NAME));
-define('DATA_DIR', realpath(__DIR__ . '/../' . DATA_DIR_NAME));
+define( 'APP_DIR_NAME', 'app' );
+define( 'DATA_DIR_NAME', 'data' );
+define( 'UPLOADS_DIR_NAME', 'uploads' );
 
-//Books Links
-define('ASSE_ADMIN_LINKS', [
-  'Stylebook'     => $originHost . '/wp/wp-admin/',
-  'Techbook'      => $originHost . '/wp/wp-admin/',
-  'Travelbook'    => $originHost . '/wp/wp-admin/'
-]);
+define( 'APP_DIR', realpath( __DIR__ . '/../../' . APP_DIR_NAME ) );
+define( 'DATA_DIR', realpath( __DIR__ . '/../' . DATA_DIR_NAME ) );
+
+// Books Links
+if ( ! defined( 'ADMIN_LINKS' ) ) {
+  define( 'ASSE_ADMIN_LINKS', array(
+    'Stylebook'     => $originHost . '/wp/wp-admin/',
+    'Techbook'      => $originHost . '/wp/wp-admin/',
+    'Travelbook'    => $originHost . '/wp/wp-admin/'
+  ) );
+}
+
+// Books Plugins
+if ( ! defined( 'ENABLE_PLUGINS' ) ) {
+  define( 'ENABLE_PLUGINS', array(
+    'amazon-s3-and-cloudfront/wordpress-s3.php',
+    'amazon-web-services/amazon-web-services.php',
+    'asse-exporter/asse-exporter.php',
+    'asse-helpers/asse-helpers.php',
+    'asse-importer/asse-importer.php',
+    'mashshare-floating-sidebar/mashshare-floating-sidebar.php',
+    'mashshare-networks/mashshare-networks.php',
+    'mashshare-select-and-share/mashshare-select-and-share.php',
+    'mashshare-sharebar/mashshare-sharebar.php',
+    'mashsharer/mashshare.php',
+    'no-category-base-wpml/no-category-base-wpml.php',
+    'wp-category-permalink/wp-category-permalink.php',
+    'wp-meta-tags/meta-tags.php',
+    'disable-wordpress-updates/disable-updates.php',
+    'dynamic-featured-image/dynamic-featured-image.php'
+  ) );
+}
 
 /**
  * Set Origin
  *
  * @return string
  */
-function getOriginHost()
-{
-    $origin = getenv('WP_ORIGIN');
+function set_origin_host() {
+  if ( ! defined( 'ORIGIN_HOST' ) ) {
+    $wp_origin = getenv( 'WP_ORIGIN' );
 
-    if (false === $origin) {
-        return 'http://192.168.33.10:41500';
+    if ( false === IS_SSL ) {
+      $wp_origin = str_replace( 'https', 'http', $wp_origin );
     }
 
-    if (false === IS_SSL) {
-        // if the current request is served over http
-        // but the origin host is configured as https
-        // rewrite the protocol
-        $origin = str_replace('https', 'http', $origin);
-    }
-
-    return $origin;
+    define( 'ORIGIN_HOST', $wp_origin );
+  }
 }
 
-define('ORIGIN_HOST', getOriginHost());
+set_origin_host();
 
 /**
  * Set Mobile Detection
  *
  * @return void
  */
-function setUADevice()
-{
-    $uaDetect = new \Mobile_Detect();
-
-    if ($uaDetect->isMobile()) {
-        $device = 'mobile';
-    } else {
-        $device = 'desktop';
-    }
-    $_SERVER['HTTP_X_UA_DEVICE'] = $device;
+function set_ua_device() {
+  $ua_detect = new \Mobile_Detect();
+  $ua_device = $ua_detect->isMobile() ? 'mobile' : 'desktop';
+  $_SERVER['HTTP_X_UA_DEVICE'] = $ua_device;
 }
 
-setUADevice();
+set_ua_device();
 
 /**
  * Bootstrap Environment
  *
  * @return void
  */
-function bootstrap()
-{
-    // load config that depends on the container environment
-    $environment = getenv('ENVIRONMENT');
-    if (false === $environment
-        || false === in_array($environment, ['development', 'testing', 'integration', 'production'])
-    ) {
-        $environment = 'development';
-    }
+function bootstrap() {
+  if ( ! $wp_environment = getenv( 'ENVIRONMENT' ) ) {
+    $wp_environment = 'development';
+  }
 
-    $layer = getenv('WP_LAYER');
-    if (false === $layer || false === in_array($layer, ['backend', 'frontend'])) {
-        $layer = 'frontend';
-    }
-    if ("true" === getenv('HTTPS_IS_ACTIVE')) {
-        $_SERVER['HTTPS'] = 'on';
-    }
+  if ( ! $wp_layer = getenv( 'WP_LAYER' ) ) {
+    $wp_layer = 'frontend';
+  }
 
-    $configFile = "{$layer}-{$environment}.php";
-    $configPath = APP_DIR . '/config/' . $configFile;
+  $wp_config_file = "{$wp_layer}-{$wp_environment}.php";
+  $wp_config_path = APP_DIR . '/config/' . $wp_config_file;
 
-    if (false === file_exists($configPath)) {
-        die('no config available');
-    } else {
-        $configData = require_once($configPath);
-        foreach ($configData as $key => $value) {
-            if (false === defined($key)) {
-                define($key, $value);
-            }
-        }
+  if ( ! file_exists( $wp_config_path ) ) {
+    exit( 'No config available.' );
+  }
+
+  $wp_config_data = require_once( $wp_config_path );
+
+  foreach( $wp_config_data as $config_key => $config_value ) {
+    if ( ! defined( $config_key ) ) {
+      define( $config_key, $config_value );
     }
+  }
 
+  if ( 'true' === getenv( 'HTTPS_IS_ACTIVE' ) ) {
+    $_SERVER['HTTPS'] = 'on';
+  }
 }
 
 bootstrap();
@@ -107,38 +117,36 @@ bootstrap();
  *
  * @return void
  */
-function initCache()
-{
-    $memcacheAvailable = false;
-    if (defined('MEMCACHED_HOST') && defined('MEMCACHED_PORT')) {
-        global $memcached_servers;
-        $memcached_servers = [[MEMCACHED_HOST, MEMCACHED_PORT]];
+function init_cache() {
+  $wp_memcached_available = false;
 
-        $memCache = new Memcached();
-        $memCache->addServer(MEMCACHED_HOST, MEMCACHED_PORT);
-        $stats = @$memCache->getStats();
-        $server = MEMCACHED_HOST . ':' . MEMCACHED_PORT;
+  if ( defined( 'MEMCACHED_HOST' ) && defined( 'MEMCACHED_PORT' ) ) {
+    global $memcached_servers;
+    $memcached_servers = [ [ MEMCACHED_HOST, MEMCACHED_PORT ] ];
 
-        $memcacheAvailable = (
-            is_array($stats) &&
-            array_key_exists($server, $stats) &&
-            array_key_exists('accepting_conns', $stats[$server]) &&
-            $stats[$server]['accepting_conns'] >= 1
-        );
-    }
-    define('MEMCACHE_AVAILABLE', $memcacheAvailable);
+    $memcached = new Memcached();
+    $memcached->addServer( MEMCACHED_HOST, MEMCACHED_PORT );
+    $memcached_stats  = @$memcached->getStats();
+    $memcached_server = MEMCACHED_HOST . ':' . MEMCACHED_PORT;
 
-    if (defined('MEMCACHED_HOST') && defined('MEMCACHED_PORT')) {
-        global $memcached_servers;
-        $memcached_servers = [[MEMCACHED_HOST, MEMCACHED_PORT]];
-    }
+    $wp_memcached_available = (
+      is_array( $memcached_stats ) &&
+      array_key_exists( $memcached_server, $memcached_stats ) &&
+      array_key_exists( 'accepting_conns', $memcached_stats[ $memcached_server ] ) &&
+      $memcached_stats[ $memcached_server ][ 'accepting_conns' ] >= 1
+    );
+  }
+
+  if ( ! defined( 'MEMCACHE_AVAILABLE' ) ) {
+    define( 'MEMCACHE_AVAILABLE', $wp_memcached_available );
+  }
 }
 
-initCache();
+init_cache();
 
 $table_prefix = 'wp_';
 
 // load adtags config
-if (file_exists(APP_DIR . '/config/adtags.php')) {
-  define('ASSE_ADTAGS', require_once APP_DIR . '/config/adtags.php');
+if ( file_exists( APP_DIR . '/config/adtags.php' ) ) {
+  define( 'ASSE_ADTAGS', require_once APP_DIR . '/config/adtags.php' );
 }
