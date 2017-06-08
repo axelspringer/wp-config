@@ -4,7 +4,7 @@ getenv('WP_ORIGIN') || exit;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 if ( ! defined( 'ASSE_XBOOKS_CONFIG' ) ) {
-  define( 'ASSE_XBOOKS_CONFIG', '1.0.12' );
+  define( 'ASSE_XBOOKS_CONFIG', '1.0.13' );
 }
 
 define( 'APP_DIR_NAME', 'app' );
@@ -90,7 +90,7 @@ function bootstrap() {
     $wp_layer = 'frontend';
   }
 
-  $wp_config_file = "{$wp_layer}-{$wp_environment}.php";
+  $wp_config_file = $wp_layer . '-' . $wp_environment . '.php';
   $wp_config_path = APP_DIR . '/config/' . $wp_config_file;
 
   if ( ! file_exists( $wp_config_path ) ) {
