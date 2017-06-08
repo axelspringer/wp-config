@@ -57,7 +57,7 @@
       "parsecsv/php-parsecsv": "0.4.5",
       "wp-cli/wp-cli": "v1.1.0",
 
-      "muplugin/asse-action-onlyadmin": "1.0.2",
+      "muplugin/asse-action-onlyadmin": "1.0.3",
       "muplugin/asse-action-post": "1.0.1",
       "muplugin/asse-action-reveal-post-id": "1.0.0",
       "muplugin/asse-action-upload": "1.0.3",
