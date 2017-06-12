@@ -46,6 +46,7 @@
       "wpackagist-plugin/wp-category-permalink": "3.0.4",
       "wpackagist-plugin/wp-meta-tags": "2.0.0",
       "wpackagist-plugin/disable-wordpress-updates": "^1.6",
+      "wpackagist-plugin/feslider": "^1.1",
 
       "koodimonni-language/core-de_de": "*",
       "koodimonni-language/de_de": "*",
@@ -70,7 +71,7 @@
       "muplugin/asse-filter-override-l10n": "1.0.0",
       "muplugin/asse-filter-post": "1.0.0",
       "muplugin/asse-filter-upload": "1.0.3",
-      "muplugin/asse-imagesizes": "1.0.0",
+      "muplugin/asse-imagesizes": "1.0.2",
       "muplugin/aws-integrations": "1.0.3",
       "muplugin/book-enable-plugins": "1.0.0",
       "muplugin/book-filter-allfacebook-instant-articles": "1.0.0",
