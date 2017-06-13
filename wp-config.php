@@ -4,7 +4,7 @@ getenv('WP_ORIGIN') || exit;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 if ( ! defined( 'ASSE_XBOOKS_CONFIG' ) ) {
-  define( 'ASSE_XBOOKS_CONFIG', '1.1.1' );
+  define( 'ASSE_XBOOKS_CONFIG', '1.1.2' );
 }
 
 define( 'APP_DIR_NAME', 'app' );
@@ -17,22 +17,23 @@ define( 'DATA_DIR', realpath( __DIR__ . '/../' . DATA_DIR_NAME ) );
 // Books Plugins
 if ( ! defined( 'ENABLE_PLUGINS' ) ) {
   define( 'ENABLE_PLUGINS', array(
-    'wp-meta-tags/meta-tags.php',
-    'wp-category-permalink/wp-category-permalink.php',
-    'no-category-base-wpml/no-category-base-wpml.php',
-    'mashsharer/mashshare.php',
-    'mashshare-sharebar/mashshare-sharebar.php',
-    'mashshare-select-and-share/mashshare-select-and-share.php',
-    'mashshare-networks/mashshare-networks.php',
-    'mashshare-floating-sidebar/mashshare-floating-sidebar.php',
-    'feslider/feslider.php',
-    'dynamic-featured-image/dynamic-featured-image.php',
-    'disable-wordpress-updates/disable-updates.php',
-    'asse-importer/asse-importer.php',
-    'asse-helpers/asse-helpers.php',
-    'asse-exporter/asse-exporter.php',
+    'amazon-s3-and-cloudfront/wordpress-s3.php',
     'amazon-web-services/amazon-web-services.php',
-    'amazon-s3-and-cloudfront/wordpress-s3.php'
+    'asse-exporter/asse-exporter.php',
+    'asse-helpers/asse-helpers.php',
+    'asse-importer/asse-importer.php',
+    'disable-wordpress-updates/disable-updates.php',
+    'dynamic-featured-image/dynamic-featured-image.php',
+    'feslider/feslider.php',
+    'mashshare-floating-sidebar/mashshare-floating-sidebar.php',
+    'mashshare-networks/mashshare-networks.php',
+    'mashshare-select-and-share/mashshare-select-and-share.php',
+    'mashshare-sharebar/mashshare-sharebar.php',
+    'mashsharer/mashshare.php',
+    'no-category-base-wpml/no-category-base-wpml.php',
+    'shortcoder/shortcoder.php',
+    'wp-category-permalink/wp-category-permalink.php',
+    'wp-meta-tags/meta-tags.php'
   ) );
 }
 
