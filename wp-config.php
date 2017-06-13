@@ -4,7 +4,7 @@ getenv('WP_ORIGIN') || exit;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 if ( ! defined( 'ASSE_XBOOKS_CONFIG' ) ) {
-  define( 'ASSE_XBOOKS_CONFIG', '1.1.2' );
+  define( 'ASSE_XBOOKS_CONFIG', '1.1.3' );
 }
 
 define( 'APP_DIR_NAME', 'app' );
@@ -22,6 +22,7 @@ if ( ! defined( 'ENABLE_PLUGINS' ) ) {
     'asse-exporter/asse-exporter.php',
     'asse-helpers/asse-helpers.php',
     'asse-importer/asse-importer.php',
+    'asse-channelizer/asse-channelizer.php',
     'disable-wordpress-updates/disable-updates.php',
     'dynamic-featured-image/dynamic-featured-image.php',
     'feslider/feslider.php',
