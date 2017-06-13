@@ -4,7 +4,7 @@ getenv('WP_ORIGIN') || exit;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 if ( ! defined( 'ASSE_XBOOKS_CONFIG' ) ) {
-  define( 'ASSE_XBOOKS_CONFIG', '1.0.19' );
+  define( 'ASSE_XBOOKS_CONFIG', '1.0.20' );
 }
 
 define( 'APP_DIR_NAME', 'app' );
