@@ -4,7 +4,7 @@ getenv('WP_ORIGIN') || exit;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 if ( ! defined( 'ASSE_XBOOKS_CONFIG' ) ) {
-  define( 'ASSE_XBOOKS_CONFIG', '1.0.17' );
+  define( 'ASSE_XBOOKS_CONFIG', '1.0.19' );
 }
 
 define( 'APP_DIR_NAME', 'app' );
@@ -13,15 +13,6 @@ define( 'UPLOADS_DIR_NAME', 'uploads' );
 
 define( 'APP_DIR', realpath( __DIR__ . '/../../' . APP_DIR_NAME ) );
 define( 'DATA_DIR', realpath( __DIR__ . '/../' . DATA_DIR_NAME ) );
-
-// Books Links
-if ( ! defined( 'ADMIN_LINKS' ) ) {
-  define( 'ASSE_ADMIN_LINKS', array(
-    'Stylebook'     => $originHost . '/wp/wp-admin/',
-    'Techbook'      => $originHost . '/wp/wp-admin/',
-    'Travelbook'    => $originHost . '/wp/wp-admin/'
-  ) );
-}
 
 // Books Plugins
 if ( ! defined( 'ENABLE_PLUGINS' ) ) {
@@ -107,6 +98,25 @@ function bootstrap() {
 
   if ( 'true' === getenv( 'HTTPS_IS_ACTIVE' ) ) {
     $_SERVER['HTTPS'] = 'on';
+  }
+
+  // Books Links
+  if ( ! defined( 'ASSE_ADMIN_LINKS' ) ) {
+    $wp_asse_admin_links = [
+      'development' =>  [],
+      'testing'     =>  [
+        'Stylebook'     => 'https://be-stylebook.test.tortuga.cloud/wp/wp-admin/',
+        'Techbook'      => 'https://be-techbook.test.tortuga.cloud/wp/wp-admin/',
+        'Travelbook'    => 'https://be-travelbook.test.tortuga.cloud/wp/wp-admin/'
+      ],
+      'production'  => [
+        'Stylebook'     => 'https://backend.stylebook.de/wp/wp-admin/',
+        'Techbook'      => 'https://backend.techbook.de/wp/wp-admin/',
+        'Travelbook'    => 'https://backend.travelbook.de/wp/wp-admin/'
+      ]
+    ];
+
+    define( 'ASSE_ADMIN_LINKS', $wp_asse_admin_links[ $wp_environment ] );
   }
 }
 
