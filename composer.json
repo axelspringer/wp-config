@@ -62,6 +62,7 @@
       "muplugin/asse-action-post": "1.0.1",
       "muplugin/asse-action-reveal-post-id": "1.0.0",
       "muplugin/asse-action-upload": "1.0.3",
+      "muplugin/asse-action-url": "1.0.8",
       "muplugin/asse-action-wpservices": "1.0.0",
       "muplugin/asse-add-headers": "1.0.4",
       "muplugin/asse-cmd-content": "1.0.4",
@@ -73,6 +74,7 @@
       "muplugin/asse-filter-post": "1.0.0",
       "muplugin/asse-filter-upload": "1.0.3",
       "muplugin/asse-imagesizes": "1.0.2",
+      "muplugin/asse-patches": "1.0.1",
       "muplugin/aws-integrations": "1.0.3",
       "muplugin/book-enable-plugins": "1.0.0",
       "muplugin/book-filter-allfacebook-instant-articles": "1.0.0",
@@ -80,8 +82,7 @@
       "muplugin/s3-postmeta-patch": "1.0.3",
       "muplugin/s3-sitemap-url": "1.0.1",
       "muplugin/wp-disable-emojis": "1.0.0",
-      "muplugin/asse-action-url": "1.0.8",
-      "muplugin/asse-patches": "1.0.1"
+      "mupluginasse-action-activate-jwplayer": "1.0.0"
     },
     "repositories": [
     {
