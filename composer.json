@@ -58,6 +58,7 @@
       "parsecsv/php-parsecsv": "0.4.5",
       "wp-cli/wp-cli": "v1.1.0",
 
+      "muplugin/asse-action-activate-jwplayer": "1.0.0",
       "muplugin/asse-action-onlyadmin": "1.0.3",
       "muplugin/asse-action-post": "1.0.1",
       "muplugin/asse-action-reveal-post-id": "1.0.0",
@@ -82,8 +83,7 @@
       "muplugin/book-filter-amp": "1.0.0",
       "muplugin/s3-postmeta-patch": "1.0.3",
       "muplugin/s3-sitemap-url": "1.0.1",
-      "muplugin/wp-disable-emojis": "1.0.0",
-      "mupluginasse-action-activate-jwplayer": "1.0.0"
+      "muplugin/wp-disable-emojis": "1.0.0"
     },
     "repositories": [
     {
