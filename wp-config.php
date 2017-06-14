@@ -19,7 +19,6 @@ if ( ! defined( 'ENABLE_PLUGINS' ) ) {
   define( 'ENABLE_PLUGINS', array(
     'amazon-s3-and-cloudfront/wordpress-s3.php',
     'amazon-web-services/amazon-web-services.php',
-    'amp/amp.php',
     'asse-channelizer/asse-channelizer.php',
     'asse-exporter/asse-exporter.php',
     'asse-feed/asse-feed.php',
