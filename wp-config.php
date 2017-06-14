@@ -4,7 +4,7 @@ getenv('WP_ORIGIN') || exit;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 if ( ! defined( 'ASSE_XBOOKS_CONFIG' ) ) {
-  define( 'ASSE_XBOOKS_CONFIG', '1.1.4' );
+  define( 'ASSE_XBOOKS_CONFIG', '1.1.5' );
 }
 
 define( 'APP_DIR_NAME', 'app' );
@@ -19,10 +19,12 @@ if ( ! defined( 'ENABLE_PLUGINS' ) ) {
   define( 'ENABLE_PLUGINS', array(
     'amazon-s3-and-cloudfront/wordpress-s3.php',
     'amazon-web-services/amazon-web-services.php',
+    'amp/amp.php',
+    'asse-channelizer/asse-channelizer.php',
     'asse-exporter/asse-exporter.php',
+    'asse-feed/asse-feed.php',
     'asse-helpers/asse-helpers.php',
     'asse-importer/asse-importer.php',
-    'asse-channelizer/asse-channelizer.php',
     'disable-wordpress-updates/disable-updates.php',
     'dynamic-featured-image/dynamic-featured-image.php',
     'feslider/feslider.php',
