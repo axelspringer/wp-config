@@ -1,7 +1,10 @@
 <?php
-if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/error/error.html')) {
-    include_once($_SERVER['DOCUMENT_ROOT'] . '/error/error.html');
-    die;
-} else {
-    die;
+
+$document_root    = $_SERVER['DOCUMENT_ROOT'];
+$document_error   = $document_root . '/error/error.html';
+
+if ( file_exists ( $document_root ) ) {
+  include_once $document_error;
 }
+
+exit;
