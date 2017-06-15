@@ -4,7 +4,7 @@ getenv('WP_ORIGIN') || exit;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 if ( ! defined( 'ASSE_XBOOKS_CONFIG' ) ) {
-  define( 'ASSE_XBOOKS_CONFIG', '1.1.9' );
+  define( 'ASSE_XBOOKS_CONFIG', '1.1.11' );
 }
 
 define( 'APP_DIR_NAME', 'app' );
@@ -77,6 +77,18 @@ set_ua_device();
  * @return void
  */
 function bootstrap() {
+  $wp_debug   = array(
+    'WP_DEBUG',
+    'WP_DEBUG_DISPLAY',
+    'SCRIPT_DEBUG'
+  );
+
+  foreach ( $wp_debug as $wp_env ) {
+    if ( $env = getenv( $wp_env ) ) {
+      define( $wp_env, $env == 'true' );
+    }
+  }
+
   if ( ! $wp_environment = getenv( 'ENVIRONMENT' ) ) {
     $wp_environment = 'development';
   }
