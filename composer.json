@@ -54,7 +54,7 @@
 
       "google/apiclient": "v1.1.8",
       "jms/serializer": "1.2.0",
-      "johnpbloch/wordpress": "4.7.5",
+      "johnpbloch/wordpress": "4.8.0",
       "monolog/monolog": "1.21.0",
       "parsecsv/php-parsecsv": "0.4.5",
       "wp-cli/wp-cli": "v1.1.0",
