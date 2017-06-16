@@ -1,7 +1,7 @@
 <?php
 
-if ( ! defined( MEMCACHE_AVAILABLE ) || true !== MEMCACHE_AVAILABLE ) {
-  require_once ( ABSPATH . WPINC . '/cache.php' );
+if ( ! defined( 'MEMCACHE_AVAILABLE' ) || ! MEMCACHE_AVAILABLE ) {
+  require_once ABSPATH . WPINC . '/cache.php';
 
   add_action( 'muplugins_loaded', function() {
     wp_using_ext_object_cache( false );
