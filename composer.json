@@ -47,7 +47,7 @@
       "wpackagist-plugin/wp-category-permalink": "3.0.4",
       "wpackagist-plugin/wp-meta-tags": "2.0.0",
       "wpackagist-plugin/disable-wordpress-updates": "^1.6",
-      "wpackagist-plugin/feslider": "^1.1",
+      "wpackagist-plugin/featured-galleries": "^1.7",
 
       "koodimonni-language/core-de_de": "*",
       "koodimonni-language/de_de": "*",

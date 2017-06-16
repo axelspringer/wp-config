@@ -4,7 +4,7 @@ getenv('WP_ORIGIN') || exit;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 if ( ! defined( 'ASSE_XBOOKS_CONFIG' ) ) {
-  define( 'ASSE_XBOOKS_CONFIG', '1.1.12' );
+  define( 'ASSE_XBOOKS_CONFIG', '1.1.13' );
 }
 
 define( 'APP_DIR_NAME', 'app' );
@@ -26,7 +26,7 @@ if ( ! defined( 'ENABLE_PLUGINS' ) ) {
     'asse-importer/asse-importer.php',
     'disable-wordpress-updates/disable-updates.php',
     'dynamic-featured-image/dynamic-featured-image.php',
-    'feslider/feslider.php',
+    'featured-galleries/featured-galleries.php',
     'mashshare-floating-sidebar/mashshare-floating-sidebar.php',
     'mashshare-networks/mashshare-networks.php',
     'mashshare-select-and-share/mashshare-select-and-share.php',
@@ -41,8 +41,6 @@ if ( ! defined( 'ENABLE_PLUGINS' ) ) {
 
 /**
  * Set Origin
- *
- * @return string
  */
 function set_origin_host() {
   if ( ! defined( 'ORIGIN_HOST' ) ) {
