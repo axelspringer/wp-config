@@ -33,7 +33,7 @@
       "wppl/asse-helpers": "1.0.0",
       "wppl/asse-feed": "1.0.1",
       "wppl/asse-exporter": "1.0.6",
-      "wppl/asse-channelizer": "1.0.1",
+      "wppl/asse-channelizer": "1.0.2",
 
       "wpackagist-plugin/amazon-s3-and-cloudfront": "1.1.5",
       "wpackagist-plugin/amazon-web-services": "1.0.2",
