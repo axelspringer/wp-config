@@ -28,7 +28,7 @@
     "require": {
       "koodimonni/composer-dropin-installer": ">=1.0.1",
 
-      "wppl/asse-pagemanager": "2.2.15",
+      "wppl/asse-pagemanager": "2.2.16",
       "wppl/asse-importer": "1.0.3",
       "wppl/asse-helpers": "1.0.0",
       "wppl/asse-feed": "1.0.1",
