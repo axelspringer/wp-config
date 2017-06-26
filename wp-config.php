@@ -4,7 +4,7 @@ getenv('WP_ORIGIN') || exit;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 if ( ! defined( 'ASSE_XBOOKS_CONFIG' ) ) {
-  define( 'ASSE_XBOOKS_CONFIG', '1.1.24' );
+  define( 'ASSE_XBOOKS_CONFIG', '1.2.1' );
 }
 
 define( 'APP_DIR_NAME', 'app' );
@@ -47,7 +47,7 @@ function set_origin_host() {
   if ( ! defined( 'ORIGIN_HOST' ) ) {
     $wp_origin = getenv( 'WP_ORIGIN' );
 
-    if ( false === IS_SSL ) {
+    if ( false === getenv( IS_SSL ) ) {
       $wp_origin = str_replace( 'https', 'http', $wp_origin );
     }
 
