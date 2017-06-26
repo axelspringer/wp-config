@@ -72,7 +72,7 @@
       "muplugin/asse-cmd-content": "1.0.5",
       "muplugin/asse-filter-attachment-url": "1.0.0",
       "muplugin/asse-filter-dashboard": "1.0.0",
-      "muplugin/asse-filter-image": "1.0.0",
+      "muplugin/asse-filter-image": "1.0.1",
       "muplugin/asse-filter-override-l10n": "1.0.0",
       "muplugin/asse-filter-post": "1.0.0",
       "muplugin/asse-filter-upload": "1.0.3",
