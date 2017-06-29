@@ -120,14 +120,16 @@ function bootstrap() {
     $wp_asse_admin_links = [
       'development' =>  [],
       'testing'     =>  [
-        'Stylebook'     => 'https://be-stylebook.test.tortuga.cloud/wp/wp-admin/',
-        'Techbook'      => 'https://be-techbook.test.tortuga.cloud/wp/wp-admin/',
-        'Travelbook'    => 'https://be-travelbook.test.tortuga.cloud/wp/wp-admin/'
+        'Stylebook'  => 'https://be-stylebook.test.tortuga.cloud/wp/wp-admin/',
+        'Techbook'   => 'https://be-techbook.test.tortuga.cloud/wp/wp-admin/',
+        'Travelbook' => 'https://be-travelbook.test.tortuga.cloud/wp/wp-admin/',
+        'Fitbook'    => 'https://be-fitbook.test.tortuga.cloud/wp/wp-admin/',
       ],
       'production'  => [
-        'Stylebook'     => 'https://backend.stylebook.de/wp/wp-admin/',
-        'Techbook'      => 'https://backend.techbook.de/wp/wp-admin/',
-        'Travelbook'    => 'https://backend.travelbook.de/wp/wp-admin/'
+        'Stylebook'  => 'https://backend.stylebook.de/wp/wp-admin/',
+        'Techbook'   => 'https://backend.techbook.de/wp/wp-admin/',
+        'Travelbook' => 'https://backend.travelbook.de/wp/wp-admin/',
+        'Fitbook'    => 'https://backend.fitbook.de/wp/wp-admin/',
       ]
     ];
 
