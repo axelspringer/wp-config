@@ -1,10 +1,17 @@
 <?php
 
-$document_root    = $_SERVER['DOCUMENT_ROOT'];
-$document_error   = $document_root . '/error/error.html';
-
-if ( file_exists ( $document_error ) ) {
-  include_once $document_error;
+// exit, if there is no document root defined
+if ( ! isset( $_SERVER['DOCUMENT_ROOT'] ) ) {
+  exit;
 }
 
+// define error document
+$error_doc =  $_SERVER['DOCUMENT_ROOT'] . '/error/error.html';
+
+// check and include
+if ( file_exists ( $error_doc ) ) {
+  include_once $error_doc;
+}
+
+// exit anyway
 exit;
