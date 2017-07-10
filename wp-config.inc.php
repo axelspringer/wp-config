@@ -26,7 +26,7 @@ $asse_wp_enable_plugins = array(
   'wp-meta-tags/meta-tags.php'
 );
 
-$asse_wp_asse_admin_links = [
+$asse_wp_admin_links = [
   'development' =>  [],
   'testing'     =>  [
     'Stylebook'  => 'https://be-stylebook.test.tortuga.cloud/wp/wp-admin/',
