@@ -6,7 +6,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/wp-config.inc.php';
 
 if ( ! defined( 'ASSE_XBOOKS_CONFIG' ) ) {
-  define( 'ASSE_XBOOKS_CONFIG', '1.3.6' );
+  define( 'ASSE_XBOOKS_CONFIG', '1.3.7' );
 }
 
 if ( ! defined( 'APP_DIR_NAME' ) ) {
@@ -47,7 +47,6 @@ class Asse_WP_Config {
    */
   public function __construct () {
     $this->set_origin_host();
-    $this->set_ua_device();
     $this->bootstrap();
     $this->init_memcached();
   }
@@ -69,17 +68,6 @@ class Asse_WP_Config {
     if ( ! defined( 'ORIGIN_HOST' ) ) {
       define( 'ORIGIN_HOST', $wp_origin );
     }
-  }
-
-  /**
-   * Set mobile device
-   *
-   * @return void
-   */
-  public function set_ua_device() {
-    $ua_detect = new \Mobile_Detect();
-    $ua_device = $ua_detect->isMobile() ? 'mobile' : 'desktop';
-    $_SERVER['HTTP_X_UA_DEVICE'] = $ua_device;
   }
 
   /**
