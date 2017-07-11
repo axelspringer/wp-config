@@ -6,7 +6,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/wp-config.inc.php';
 
 if ( ! defined( 'ASSE_XBOOKS_CONFIG' ) ) {
-  define( 'ASSE_XBOOKS_CONFIG', '1.3.8' );
+  define( 'ASSE_XBOOKS_CONFIG', '1.3.9' );
 }
 
 if ( ! defined( 'APP_DIR_NAME' ) ) {
