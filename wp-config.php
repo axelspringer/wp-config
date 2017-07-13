@@ -5,8 +5,8 @@ getenv( 'WP_ORIGIN' ) || exit;
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/wp-config.inc.php';
 
-if ( ! defined( 'ASSE_XBOOKS_CONFIG' ) ) {
-  define( 'ASSE_XBOOKS_CONFIG', '1.3.10' );
+if ( ! defined( 'WP_CONFIG' ) ) {
+  define( 'WP_CONFIG', '1.3.11' );
 }
 
 if ( ! defined( 'APP_DIR_NAME' ) ) {
@@ -29,7 +29,7 @@ if ( ! defined( 'DATA_DIR' ) ) {
   define( 'DATA_DIR', realpath( __DIR__ . '/../' . DATA_DIR_NAME ) );
 }
 
-class Asse_WP_Config {
+final class WPConfig {
 
   /**
    * Environment variables to listen on
@@ -162,6 +162,6 @@ class Asse_WP_Config {
   }
 }
 
-$asse_wp_config = new Asse_WP_Config();
+$wp_config = new WPConfig();
 
 $table_prefix = 'wp_';

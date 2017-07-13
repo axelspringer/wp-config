@@ -8,6 +8,7 @@ $asse_wp_enable_plugins = array(
   'asse-channelizer/asse-channelizer.php',
   'asse-exporter/asse-exporter.php',
   'asse-feed/asse-feed.php',
+  'asse-framework/asse-framework.php',
   'asse-helpers/asse-helpers.php',
   'asse-http/asse-http.php',
   'asse-importer/asse-importer.php',
