@@ -29,7 +29,7 @@
       "koodimonni/composer-dropin-installer": ">=1.0.1",
 
       "wppl/asse-akamai": "^0.3.0",
-      "wppl/asse-channelizer": "1.0.2",
+      "wppl/asse-channelizer": "^1.0.4",
       "wppl/asse-exporter": "1.0.7",
       "wppl/asse-feed": "1.0.1",
       "wppl/asse-helpers": "1.0.0",
