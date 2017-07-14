@@ -6,7 +6,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/wp-config.inc.php';
 
 if ( ! defined( 'WP_CONFIG' ) ) {
-  define( 'WP_CONFIG', '1.4.4' );
+  define( 'WP_CONFIG', '1.4.5' );
 }
 
 if ( ! defined( 'APP_DIR_NAME' ) ) {
@@ -108,6 +108,7 @@ final class WPConfig {
       }
     }
 
+    // https
     if ( 'true' === getenv( 'HTTPS_IS_ACTIVE' ) ) {
       $_SERVER['HTTPS'] = 'on';
     }
@@ -125,6 +126,11 @@ final class WPConfig {
     // adtags config
     if ( defined( 'APP_DIR' ) && file_exists( APP_DIR . '/config/adtags.php' ) ) {
       define( 'ASSE_ADTAGS', require_once APP_DIR . '/config/adtags.php' );
+    }
+
+    // asse-http config
+    if ( $wp_layer === 'frontend' && defined( 'ORIGIN_HOST' ) ) {
+      define( 'HTTP_ORIGIN', ORIGIN_HOST );
     }
   }
 
