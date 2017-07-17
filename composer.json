@@ -30,7 +30,7 @@
 
       "wppl/asse-akamai": "^0.3.0",
       "wppl/asse-channelizer": "^1.0.4",
-      "wppl/asse-exporter": "^1.0.8",
+      "wppl/asse-exporter": "^1.0.10",
       "wppl/asse-feed": "1.0.1",
       "wppl/asse-helpers": "1.0.0",
       "wppl/asse-http": "^1.1.2",
