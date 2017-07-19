@@ -35,7 +35,7 @@
       "wppl/asse-helpers": "1.0.0",
       "wppl/asse-http": "^1.1.2",
       "wppl/asse-framework": "^0.1.3",
-      "wppl/asse-importer": "1.0.4",
+      "wppl/asse-importer": "^1.0.7",
       "wppl/asse-pagemanager": "2.4.3",
       "wppl/asse-social": "^0.0.5",
 
