@@ -6,7 +6,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/wp-config.inc.php';
 
 if ( ! defined( 'WP_CONFIG' ) ) {
-  define( 'WP_CONFIG', '1.5.0"' );
+  define( 'WP_CONFIG', '1.5.1"' );
 }
 
 if ( ! defined( 'APP_DIR_NAME' ) ) {
@@ -36,10 +36,11 @@ final class WPConfig {
    *
    * @var array
    */
-  protected $debug_env = array(
+  private $allowed_env_vars = array(
     'WP_DEBUG',
     'WP_DEBUG_DISPLAY',
-    'SCRIPT_DEBUG'
+    'SCRIPT_DEBUG',
+    'WP_CACHE'
   );
 
   /**
@@ -76,10 +77,7 @@ final class WPConfig {
    * @return void
    */
   public function bootstrap() {
-    global $asse_wp_admin_links;
-    global $asse_wp_enable_plugins;
-
-    foreach ( $this->debug_env as $env_var ) {
+    foreach ( $this->allowed_env_vars as $env_var ) {
       if ( $env = getenv( $env_var ) ) {
         define( $env_var, filter_var( $env, FILTER_VALIDATE_BOOLEAN ) );
       }
@@ -115,12 +113,12 @@ final class WPConfig {
 
     // xBooks Links
     if ( ! defined( 'ASSE_ADMIN_LINKS' ) ) {
-      define( 'ASSE_ADMIN_LINKS', $asse_wp_admin_links[ $wp_environment ] );
+      define( 'ASSE_ADMIN_LINKS', WPConfigDefaults::Links[ $wp_environment ] );
     }
 
     // enable plugins
     if ( ! defined( 'ENABLE_PLUGINS' ) ) {
-      define( 'ENABLE_PLUGINS', $asse_wp_enable_plugins );
+      define( 'ENABLE_PLUGINS', WPConfigDefaults::Plugins );
     }
 
     // adtags config
