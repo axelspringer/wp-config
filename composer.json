@@ -84,7 +84,7 @@
       "muplugin/book-enable-plugins": "1.0.0",
       "muplugin/book-filter-allfacebook-instant-articles": "1.0.0",
       "muplugin/book-filter-amp": "1.0.0",
-      "muplugin/s3-postmeta-patch": "1.0.3",
+      "muplugin/s3-postmeta-patch": "^1.0.4",
       "muplugin/s3-sitemap-url": "1.0.1",
       "muplugin/wp-disable-emojis": "1.0.0"
     },
