@@ -79,7 +79,7 @@
       "muplugin/asse-filter-upload": "1.0.3",
       "muplugin/asse-imagesizes": "1.0.2",
       "muplugin/asse-patches": "^1.0.2",
-      "muplugin/asse-prometheus": "*",
+      "muplugin/asse-prometheus": "^0.1.2",
       "muplugin/aws-integrations": "1.0.3",
       "muplugin/book-enable-plugins": "1.0.0",
       "muplugin/book-filter-allfacebook-instant-articles": "1.0.0",
