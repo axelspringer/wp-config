@@ -39,7 +39,7 @@
       "wppl/asse-pagemanager": "2.4.3",
       "wppl/asse-social": "^0.0.5",
 
-      "wpackagist-plugin/amazon-s3-and-cloudfront": "1.2.0",
+      "wpackagist-plugin/amazon-s3-and-cloudfront": "1.2",
       "wpackagist-plugin/amazon-web-services": "1.0.3",
       "wpackagist-plugin/amp": "0.3.3",
       "wpackagist-plugin/co-authors-plus": "3.2.2",
