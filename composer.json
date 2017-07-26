@@ -102,15 +102,11 @@
     },
     {
       "type": "composer",
-      "url": "https://toran-proxy.asit.services/repo/packagist/",
-      "options": {
-        "ssl": {
-          "verify_peer": false,
-          "verify_peer_name": false,
-          "allow_self_signed": true
-        }
-      }
+      "url": "https://wp-languages.github.io"
     },
-    {"packagist": false}
+    {
+      "type":"composer",
+      "url":"https://wpackagist.org"
+    }
   ]
 }
