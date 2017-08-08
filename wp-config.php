@@ -6,7 +6,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/wp-config.inc.php';
 
 if ( ! defined( 'WP_CONFIG' ) ) {
-  define( 'WP_CONFIG', '1.5.12' );
+  define( 'WP_CONFIG', '1.5.13' );
 }
 
 if ( ! defined( 'APP_DIR_NAME' ) ) {
