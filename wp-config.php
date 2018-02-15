@@ -162,7 +162,15 @@ final class WPConfig {
 
     if ( ! defined( 'MEMCACHE_AVAILABLE' ) ) {
       define( 'MEMCACHE_AVAILABLE', $wp_memcached_available );
-    }
+	}
+	
+	if (MEMCACHE_AVAILABLE === true) {
+		define('PODS_ALT_CACHE', true);
+		define('PODS_ALT_CACHE_DEBUG', false);
+		define('PODS_ALT_CACHE_TYPE', 'memcached');
+		define('PODS_ALT_CACHE_MEMCACHED_SERVER', MEMCACHED_HOST);
+		define('PODS_ALT_CACHE_MEMCACHED_PORT', MEMCACHED_PORT);
+	}
   }
 }
 
