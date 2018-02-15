@@ -140,8 +140,7 @@ final class WPConfig {
   public function init_memcached() {
     global $memcached_servers;
 
-    if( ! class_exists( 'Memcache' )
-      || ! ( defined( 'MEMCACHED_HOST' ) && defined( 'MEMCACHED_PORT' ) ) ){
+    if( ! ( defined( 'MEMCACHED_HOST' ) && defined( 'MEMCACHED_PORT' ) ) ){
       return;
     }
 
