@@ -3,8 +3,6 @@
 getenv( 'WP_ORIGIN' ) || exit;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
-require_once __DIR__ . '/wp-config.inc.php';
-
 
 if ( ! defined( 'WP_CONFIG' ) ) {
   define( 'WP_CONFIG', '3.0.0' );
