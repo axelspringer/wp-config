@@ -22,7 +22,7 @@
       "koodimonni-language/core-de_de": "*",
       "koodimonni-language/de_de": "*",
       "koodimonni-language/core-en_gb": "*",
-      "koodimonni-language/en_gb": "*"
+      "koodimonni-language/en_gb": "*",
     
     "koodimonni/composer-dropin-installer": "^1.2.0",
     "wpackagist-plugin/duplicate-post": "2.6",
