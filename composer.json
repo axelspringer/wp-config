@@ -10,8 +10,7 @@
   "homepage": "https://github.com/axelspringer/wp-config",
   "license": "proprietary",
   "extra": {
-    "installer-name": "wp-config",
-    "wordpress-install-dir": "web"
+    "installer-name": "wp-config"
   },
   "repositories": [{
     "type": "composer",
