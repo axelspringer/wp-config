@@ -46,7 +46,7 @@ final class WPConfig {
     SSM::DB_USER          => 'wordpress', // these are default salts, so no magic
     SSM::DB_PASSWORD      => 'wordpress',
     SSM::DB_CHARSET       => 'utf8mb4',
-    SSM::DB_MYSQL_CLIENT_FLAGS => null,
+    SSM::DB_MYSQL_CLIENT_FLAGS => NULL,
     SSM::AUTH_KEY         => 'g$<|uOx~IO[#D${0%$SAG)sZ<8SxC&E1UE}/-d&+{n@SpwR5<cLb9/G/-H6B,;Dp',
     SSM::AUTH_SALT        => 'dfeEc[n>-{%W.[[qaAAKYnU/M^=&}w4ul^}5MDSi6c>w0(++jY:L@5NIZqB*QIaK',
     SSM::LOGGED_IN_KEY    => 'wZB/8(?{{&jJX.]+m%W>+R3@YI|zS W93 ysvh=~$glEt}b[+/?T[@:IpeYT)k[v',
@@ -82,6 +82,11 @@ final class WPConfig {
 	 */
   public function __construct( $dev_mode ) {
     $this->dev_mode = $dev_mode; // noop
+
+    // setup params by env
+    foreach ( $this->params as $param => $default ) {
+      $this->params[$param] = ! getenv( $param ) ? $default : getenv( $param );
+    }
 	}
 
   /**
@@ -124,8 +129,7 @@ final class WPConfig {
     $ssm = $reflect->getConstants();
 
     // iterate needed params
-    foreach ( $this->params as $param => $default ) {
-      $this->params[$param] = ! getenv( $param ) ? $default : getenv( $param );
+    foreach ( $this->params as $param => $value ) {
       // map and define the wordpress constants
       define( $key = array_search( $param, $ssm ), $this->params[$param] );
     }
