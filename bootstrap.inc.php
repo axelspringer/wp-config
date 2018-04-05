@@ -1,6 +1,6 @@
 <?php
 
-namespace AxelSpringer\WP;
+namespace WP\Config;
 
 use Aws\Credentials\CredentialProvider;
 use Aws\Rds\AuthTokenGenerator;
@@ -36,7 +36,7 @@ abstract class SSM {
 /**
  *
  */
-final class WPConfig {
+final class Config {
 
   /**
    *
