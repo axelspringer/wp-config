@@ -111,7 +111,7 @@ final class WPConfig {
   /**
    *
    */
-  public function proxy_fordward() {
+  public function proxy() {
     if ( $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
       $_SERVER['HTTPS']='on';
 

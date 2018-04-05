@@ -20,6 +20,7 @@ require_once __DIR__ . '/bootstrap.inc.php';
 $wp_config = new WPConfig(getenv( SSM::DEV_MODE ) && getenv( SSM::DEV_MODE ) === 'true');
 $wp_config->bootstrap();
 $wp_config->auth();
+$wp_config->proxy();
 
 // set global database table prefix
 $table_prefix = 'wp_';
