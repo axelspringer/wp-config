@@ -127,7 +127,7 @@ final class Config {
    */
   public function bootstrap() {
     // get constants
-    $reflect = new \ReflectionClass('AxelSpringer\WP\SSM');
+    $reflect = new \ReflectionClass('\WP\Config\SSM');
     $ssm = $reflect->getConstants();
 
     // iterate needed params
