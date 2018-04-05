@@ -118,7 +118,7 @@ final class WPConfig {
   /**
    *
    */
-  private function bootstrap() {
+  public function bootstrap() {
     // get constants
     $reflect = new \ReflectionClass('AxelSpringer\WP\SSM');
     $ssm = $reflect->getConstants();
