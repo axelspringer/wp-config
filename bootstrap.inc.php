@@ -101,7 +101,7 @@ final class WPConfig {
     // get authentication token for RDS
     $this->provider = CredentialProvider::defaultProvider();
     $this->rds_auth_generator = new AuthTokenGenerator( $this->provider );
-    $this->token = $this->rds_auth_generator->createToken( $this->$params[ SSM::DB_HOST ], 'eu-west-1', $this->$params[ SSM::DB_USER ] );
+    $this->token = $this->rds_auth_generator->createToken( $this->params[ SSM::DB_HOST ], 'eu-west-1', $this->params[ SSM::DB_USER ] );
 
     // overwrite password with auth token
     $this->params[ SSM::DB_PASSWORD ] = $this->token;
