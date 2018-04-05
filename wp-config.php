@@ -1,12 +1,27 @@
 <?php
-// exit, if not there is an origin to relate to
-// getenv( 'WP_ORIGIN' ) || exit;
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+namespace AxelSpringer\WP;
+
+// respect autoloader
+if ( file_exists( __DIR__ . '/../vendor/autoload.php' ) )
+  require_once __DIR__ . '/../vendor/autoload.php';
+
+// force set content dir to dedicated folder
+define( 'WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content' );
+
+// set for files
+if ( ! defined( 'ABSPATH' ) )
+  define( 'ABSPATH', dirname( __FILE__ ) . '/' );
+
+// load WPConfig
 require_once __DIR__ . '/wp-config.inc.php';
 
-// Initialize new config
-$wp_config = new WPConfig();
+// create new config
+$wp_config = new WPConfig(getenv( SSM::DEV_MODE ) && getenv( SSM::DEV_MODE ) === 'true');
+$wp_config->auth();
 
-// Set global prefix
+// set global database table prefix
 $table_prefix = 'wp_';
+
+// set for WP-CLI
+require_once ABSPATH . 'wp-settings.php';

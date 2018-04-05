@@ -1,40 +1,30 @@
 {
   "name": "axelspringer/wp-config",
   "type": "wordpress-dropin",
-  "description": "General WordPress Configuration",
+  "description": "A general dropin for WordPress configuration.",
   "keywords": [
     "wordpress",
     "plugin",
-    "page"
+    "dropin"
   ],
   "homepage": "https://github.com/axelspringer/wp-config",
   "license": "proprietary",
   "extra": {
     "installer-name": "wp-config",
-    "wordpress-install-dir": "web/wp"
+    "wordpress-install-dir": "web"
   },
+  "repositories": [{
+    "type": "composer",
+    "url": "https://wpackagist.org"
+  }],
   "require": {
-       "wpackagist-plugin/amazon-s3-and-cloudfront": "^1.3.2",
-      "wpackagist-plugin/amazon-web-services": "^1.0.5",
-      "wpackagist-plugin/disable-wordpress-updates": "^1.6",
-      "wpackagist-plugin/polylang": "^2.2.4",
-  
-      "koodimonni-language/core-de_de": "*",
-      "koodimonni-language/de_de": "*",
-      "koodimonni-language/core-en_gb": "*",
-      "koodimonni-language/en_gb": "*",
-    
-    "koodimonni/composer-dropin-installer": "^1.2.0",
+    "wpackagist-plugin/jw-player": "^1.6.1",
     "wpackagist-plugin/duplicate-post": "2.6",
-    "wpackagist-plugin/json-api": "1.1.3",
-    "wpackagist-plugin/jw-player": "1.6.0",
-    "wpackagist-plugin/no-category-base-wpml": "1.3",
-    "wpackagist-plugin/wp-category-permalink": "3.0.4",
-    "wpackagist-plugin/wp-meta-tags": "2.0.0",
     "wpackagist-plugin/disable-wordpress-updates": "^1.6",
-    "jms/serializer": "1.2.0",
-    "johnpbloch/wordpress": "4.9.4",
-    "monolog/monolog": "1.21.0",
-    "parsecsv/php-parsecsv": "0.4.5"
+    "koodimonni/composer-dropin-installer": "^1.2",
+    "koodimonni-language/de_de": "*",
+    "koodimonni-language/core-de_de": "*",
+    "johnpbloch/wordpress": "^4.9.5",
+    "aws/aws-sdk-php": "^3.52"
   }
 }
