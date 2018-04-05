@@ -18,13 +18,7 @@
     "url": "https://wpackagist.org"
   }],
   "require": {
-    "wpackagist-plugin/jw-player": "^1.6.1",
-    "wpackagist-plugin/duplicate-post": "2.6",
-    "wpackagist-plugin/disable-wordpress-updates": "^1.6",
     "koodimonni/composer-dropin-installer": "^1.2",
-    "koodimonni-language/de_de": "*",
-    "koodimonni-language/core-de_de": "*",
-    "johnpbloch/wordpress": "^4.9.5",
     "aws/aws-sdk-php": "^3.52"
   }
 }
