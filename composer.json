@@ -7,6 +7,13 @@
     "plugin",
     "dropin"
   ],
+  "autoload": {
+    "psr-4": {
+      "WP\\": "src/"
+    },
+    "psr-0": {},
+    "classmap": []
+  },
   "homepage": "https://github.com/axelspringer/wp-config",
   "license": "proprietary",
   "extra": {
