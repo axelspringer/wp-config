@@ -3,8 +3,8 @@
 namespace AxelSpringer\WP;
 
 // respect autoloader
-if ( file_exists( __DIR__ . '/../vendor/autoload.php' ) )
-  require_once __DIR__ . '/../vendor/autoload.php';
+if ( file_exists( __DIR__ . '/../../vendor/autoload.php' ) )
+  require_once __DIR__ . '/../../vendor/autoload.php';
 
 // force set content dir to dedicated folder
 define( 'WP_CONTENT_DIR', dirname(__FILE__) );
