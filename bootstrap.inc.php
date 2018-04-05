@@ -10,11 +10,12 @@ use Aws\Rds\AuthTokenGenerator;
  */
 abstract class SSM {
   // database
-  const DB_HOST     = 'SSM_DB_HOST';
-  const DB_NAME     = 'SSM_DB_NAME';
-  const DB_USER     = 'SSM_DB_USER';
-  const DB_PASSWORD = 'SSM_DB_PASSWORD';
   const DB_CHARSET  = 'SSM_DB_CHARSET';
+  const DB_HOST     = 'SSM_DB_HOST';
+  const DB_MYSQL_CLIENT_FLAGS = 'SSM_DB_MYSQL_CLIENT_FLAGS';
+  const DB_NAME     = 'SSM_DB_NAME';
+  const DB_PASSWORD = 'SSM_DB_PASSWORD';
+  const DB_USER     = 'SSM_DB_USER';
 
   // wp auth
   const AUTH_KEY          = 'SSM_AUTH_KEY';
@@ -45,6 +46,7 @@ final class WPConfig {
     SSM::DB_USER          => 'wordpress', // these are default salts, so no magic
     SSM::DB_PASSWORD      => 'wordpress',
     SSM::DB_CHARSET       => 'utf8mb4',
+    SSM::DB_MYSQL_CLIENT_FLAGS => null,
     SSM::AUTH_KEY         => 'g$<|uOx~IO[#D${0%$SAG)sZ<8SxC&E1UE}/-d&+{n@SpwR5<cLb9/G/-H6B,;Dp',
     SSM::AUTH_SALT        => 'dfeEc[n>-{%W.[[qaAAKYnU/M^=&}w4ul^}5MDSi6c>w0(++jY:L@5NIZqB*QIaK',
     SSM::LOGGED_IN_KEY    => 'wZB/8(?{{&jJX.]+m%W>+R3@YI|zS W93 ysvh=~$glEt}b[+/?T[@:IpeYT)k[v',
@@ -80,11 +82,6 @@ final class WPConfig {
 	 */
   public function __construct( $dev_mode ) {
     $this->dev_mode = $dev_mode; // noop
-
-    // bootstrap
-    $this->bootstrap();
-    // proxy
-    $this->proxy_fordward();
 	}
 
   /**
@@ -101,6 +98,9 @@ final class WPConfig {
 
     // overwrite password with auth token
     $this->params[ SSM::DB_PASSWORD ] = $this->token;
+
+    // enforce ssl
+    $this->params[ SSM::DB_MYSQL_CLIENT_FLAGS ] = MYSQLI_CLIENT_SSL;
   }
 
   /**
