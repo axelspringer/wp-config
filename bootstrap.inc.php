@@ -6,7 +6,9 @@ use Aws\Credentials\CredentialProvider;
 use Aws\Rds\AuthTokenGenerator;
 
 /**
+ * Class SSM
  *
+ * @package WP\Config;
  */
 abstract class SSM {
   // database
@@ -22,12 +24,12 @@ abstract class SSM {
   const LOGGED_IN_KEY     = 'SSM_LOGGED_IN_KEY';
   const LOGGED_IN_SALT    = 'SSM_LOGGED_IN_SALT';
   const NONCE_KEY         = 'SSM_NONCE_KEY';
-  const NONCE_SALT        = 'NONCE_SALT';
+  const NONCE_SALT        = 'SSM_NONCE_SALT';
   const SECURE_AUTH_KEY   = 'SSM_SECURE_AUTH_KEY';
-  const SECURE_AUTH_SALT  = 'SSSM_SECURE_AUTH_SALT';
+  const SECURE_AUTH_SALT  = 'SSM_SECURE_AUTH_SALT';
 
   // dev
-  const DEV_MODE = 'SSM_DEV_MODE';
+  const RDS_AUTH = 'SSM_RDS_AUTH';
 
   // MySQLi
   const MYSQL_CLIENT_FLAGS = 'SSM_MYSQL_CLIENT_FLAGS';
@@ -60,9 +62,9 @@ final class Config {
   ];
 
   /**
-   *
+   * Set
    */
-  public $dev_mode = false;
+  public $rds_auth = false;
 
   /**
    *
@@ -82,8 +84,9 @@ final class Config {
 	/**
 	 * Constructor
 	 */
-  public function __construct( $dev_mode ) {
-    $this->dev_mode = $dev_mode; // noop
+  public function __construct() {
+    // set dev mode
+    $this->rds_auth = getenv( SSM::RDS_AUTH ) && getenv( SSM::RDS_AUTH ) === 'true';
 
     // setup params by env
     foreach ( $this->params as $param => $default ) {
@@ -95,7 +98,7 @@ final class Config {
    *
    */
   public function auth() {
-    if ( $this->dev_mode ) // break on dev
+    if ( ! $this->rds_auth ) // break on non rds auth use
       return;
 
     // get authentication token for RDS

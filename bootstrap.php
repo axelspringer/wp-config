@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) )
 require_once __DIR__ . '/bootstrap.inc.php';
 
 // create new config
-$wp_config = new \WP\Config\Config( getenv( \WP\Config\SSM::DEV_MODE ) && getenv( \WP\Config\SSM::DEV_MODE ) === 'true' );
+$wp_config = new \WP\Config\Config();
 $wp_config->auth();
 $wp_config->proxy();
 $wp_config->bootstrap();
