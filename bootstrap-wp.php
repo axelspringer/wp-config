@@ -24,4 +24,6 @@ abstract class WP {
   const SECURE_AUTH_SALT    = 'h8eecI:x&~~;Sdk<vyYKa&oLX:sP]#Tw#bgehJ6<Hzx][/@S5War-x.WdauIv}eo';
 
   const MYSQL_CLIENT_FLAGS  = NULL;
+
+  const RDS_AUTH            = NULL;
 }

@@ -26,7 +26,7 @@ abstract class SSM {
   const SECURE_AUTH_SALT  = 'SSM_SECURE_AUTH_SALT';
 
   // dev
-  const RDS_AUTH = 'SSM_RDS_AUTH';
+  const RDS_AUTH          = 'SSM_RDS_AUTH';
 
   // MySQLi
   const MYSQL_CLIENT_FLAGS = 'SSM_MYSQL_CLIENT_FLAGS';
