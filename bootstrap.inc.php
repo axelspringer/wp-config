@@ -33,6 +33,8 @@ abstract class SSM {
 
   // MySQLi
   const MYSQL_CLIENT_FLAGS = 'SSM_MYSQL_CLIENT_FLAGS';
+  // disbale wp
+  const DISABLE_WP_CRON = "SSM_DISABLE_WP_CRON";
 }
 
 /**
@@ -58,7 +60,8 @@ final class Config {
     SSM::NONCE_SALT       => 'p-V++V<N=G+^Aa1<}o|L^`+o&AKos=#`5breS(HNGTe%zAGTUxc ^W@o0Vw`%%S@',
     SSM::SECURE_AUTH_KEY  => '8%5/h+m4E%g{QYk]-~:=cq3D|74jX>r-#+`68=83}kUidA58WZA,6{HE8e{`5TbC',
     SSM::SECURE_AUTH_SALT => 'h8eecI:x&~~;Sdk<vyYKa&oLX:sP]#Tw#bgehJ6<Hzx][/@S5War-x.WdauIv}eo',
-    SSM::MYSQL_CLIENT_FLAGS => NULL
+	SSM::MYSQL_CLIENT_FLAGS => NULL,
+	SSM::DISABLE_WP_CRON 	=> true
   ];
 
   /**
