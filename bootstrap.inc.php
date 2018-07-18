@@ -34,7 +34,7 @@ abstract class SSM {
   // MySQLi
   const MYSQL_CLIENT_FLAGS = 'SSM_MYSQL_CLIENT_FLAGS';
   // disbale wp
-  const DISABLE_WP_CRON = "SSM_DISABLE_WP_CRON";
+  const DISABLE_WP_CRON = 'SSM_DISABLE_WP_CRON';
 }
 
 /**
